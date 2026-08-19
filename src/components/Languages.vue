@@ -37,7 +37,7 @@ const right = profile.languages.slice(2)
           <div v-for="lang in left" :key="lang.name" class="mb-6">
             <div class="flex justify-between">
               <h6 class="font-bold">{{ lang.name }}</h6>
-              <h6 class="font-bold">{{ lang.level }}</h6>
+              <h6 class="font-bold">{{ lang.level }} · {{ lang.value }}%</h6>
             </div>
             <div class="progress">
               <div
@@ -53,7 +53,7 @@ const right = profile.languages.slice(2)
           <div v-for="lang in right" :key="lang.name" class="mb-6">
             <div class="flex justify-between">
               <h6 class="font-bold">{{ lang.name }}</h6>
-              <h6 class="font-bold">{{ lang.level }}</h6>
+              <h6 class="font-bold">{{ lang.level }} · {{ lang.value }}%</h6>
             </div>
             <div class="progress">
               <div
