@@ -13,11 +13,10 @@ import SectionTitle from '@/components/SectionTitle.vue'
             :href="`mailto:${profile.email}`"
             class="contact-card om-card no-underline hover:no-underline block p-8"
           >
-            <div class="flex flex-wrap items-center justify-center mb-4">
+            <div class="flex flex-wrap items-center justify-center">
               <i class="fa fa-2x fa-envelope service-icon bg-primary text-white mr-4" aria-hidden="true"></i>
               <h4 class="font-bold m-0 text-dark">Email</h4>
             </div>
-            <p class="mb-0 text-primary font-medium">{{ profile.email }}</p>
           </a>
         </div>
         <div class="w-full md:w-5/12 px-[15px] text-center mb-8">
@@ -27,11 +26,10 @@ import SectionTitle from '@/components/SectionTitle.vue'
             rel="noopener noreferrer"
             class="contact-card om-card no-underline hover:no-underline block p-8"
           >
-            <div class="flex flex-wrap items-center justify-center mb-4">
+            <div class="flex flex-wrap items-center justify-center">
               <i class="fab fa-2x fa-whatsapp service-icon bg-primary text-white mr-4" aria-hidden="true"></i>
               <h4 class="font-bold m-0 text-dark">WhatsApp</h4>
             </div>
-            <p class="mb-0 text-primary font-medium">{{ profile.phone }}</p>
           </a>
         </div>
       </div>

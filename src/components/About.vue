@@ -34,7 +34,7 @@ function goTo(hash) {
               <h6>Nationalité : <span class="text-secondary">{{ profile.nationality }}</span></h6>
             </div>
             <div class="w-full sm:w-1/2 px-[15px] py-2">
-              <h6>WhatsApp : <span class="text-secondary"><a :href="profile.whatsapp" target="_blank" rel="noopener noreferrer">{{ profile.phone }}</a></span></h6>
+              <h6>WhatsApp : <span class="text-secondary"><a :href="profile.whatsapp" target="_blank" rel="noopener noreferrer">{{ profile.whatsappNumber }}</a></span></h6>
             </div>
             <div class="w-full sm:w-1/2 px-[15px] py-2">
               <h6 class="break-words">Email : <span class="text-secondary"><a :href="`mailto:${profile.email}`">{{ profile.email }}</a></span></h6>
