@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>CV-MANGABU-KANY-GRACE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #0b9d8a;
+      --teal-dark: #0a6f64;
+      --navy: #14343f;
+      --sand: #f6f3ee;
+      --ink: #2c3338;
+      --muted: #5d676d;
+      --line: #d9e3e1;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #d7e2df;
+      font-family: "Source Sans 3", Arial, sans-serif;
+      color: var(--ink);
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+
+    .toolbar button,
+    .toolbar a {
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 0;
+      cursor: pointer;
+      padding: 10px 18px;
+      border-radius: 999px;
+    }
+
+    .toolbar .primary {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .toolbar .ghost {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .page-wrap { padding: 32px 16px 48px; }
+
+    .cv {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 76mm 1fr;
+      box-shadow: 0 16px 40px rgba(20, 52, 63, .18);
+    }
+
+    .sidebar {
+      background: var(--navy);
+      color: #fff;
+      padding: 28px 22px 24px;
+      position: relative;
+    }
+
+    .sidebar::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 8px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--teal) 0%, #c9a227 100%);
+    }
+
+    .mono {
+      width: 58px;
+      height: 58px;
+      border: 1.5px solid var(--teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: var(--teal);
+      margin-bottom: 18px;
+    }
+
+    .photo-wrap {
+      width: 148px;
+      height: 148px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(145deg, var(--teal), #c9a227);
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+      border-radius: 50%;
+      border: 3px solid var(--navy);
+      display: block;
+    }
+
+    .side-title {
+      margin: 0 0 6px;
+      font-size: 11px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .side-block { margin-top: 26px; }
+
+    .contact-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      font-size: 12px;
+      line-height: 1.35;
+      color: #e8f1ef;
+    }
+
+    .contact-item svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--teal);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pill {
+      display: inline-block;
+      margin: 0 6px 8px 0;
+      padding: 4px 9px;
+      border: 1px solid rgba(11, 157, 138, .55);
+      border-radius: 999px;
+      font-size: 10.5px;
+      color: #d9f3ee;
+    }
+
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 12.5px;
+    }
+
+    .lang-row strong { font-weight: 700; }
+
+    .lang-row span {
+      color: #9cb8b3;
+      font-size: 11px;
+    }
+
+    .bars {
+      display: flex;
+      gap: 3px;
+    }
+
+    .bar {
+      width: 16px;
+      height: 5px;
+      background: rgba(255,255,255,.15);
+      border-radius: 2px;
+    }
+
+    .bar.on { background: var(--teal); }
+
+    .main {
+      background: #fff;
+      padding: 28px 28px 22px 26px;
+    }
+
+    .kicker {
+      margin: 0 0 4px;
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .name {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 40px;
+      line-height: .95;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .name em {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--teal-dark);
+    }
+
+    .headline {
+      margin: 10px 0 0;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    .top-rule {
+      height: 2px;
+      margin: 16px 0 18px;
+      background: linear-gradient(90deg, var(--teal) 0 72px, var(--line) 72px);
+    }
+
+    .section { margin-bottom: 20px; }
+
+    .section h2 {
+      margin: 0 0 12px;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section h2::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      background: var(--teal);
+      transform: rotate(45deg);
+    }
+
+    .profile-text {
+      margin: 0;
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .timeline {
+      border-left: 2px solid #d5ece8;
+      margin-left: 6px;
+      padding-left: 16px;
+    }
+
+    .item {
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .item::before {
+      content: "";
+      position: absolute;
+      left: -21px;
+      top: 5px;
+      width: 9px;
+      height: 9px;
+      background: #fff;
+      border: 2px solid var(--teal);
+      border-radius: 50%;
+    }
+
+    .item h3 {
+      margin: 0 0 2px;
+      font-size: 13.5px;
+      color: var(--navy);
+    }
+
+    .item .meta {
+      margin: 0 0 5px;
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .item p {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .skills {
+      display: grid;
+      gap: 8px;
+    }
+
+    .skill {
+      display: grid;
+      grid-template-columns: 1fr 110px;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .skill-name {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .track {
+      height: 6px;
+      background: var(--sand);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--teal-dark), var(--teal));
+      border-radius: 99px;
+    }
+
+    .footer-note {
+      margin-top: 8px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      font-size: 11px;
+      color: var(--teal-dark);
+      letter-spacing: .04em;
+    }
+
+    @media print {
+      html, body { background: #fff; }
+      .toolbar, .page-wrap { padding: 0; box-shadow: none; position: static; }
+      .toolbar { display: none !important; }
+      .cv {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+        box-shadow: none;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      @page { size: A4; margin: 0; }
+    }
+
+    @media (max-width: 900px) {
+      .cv {
+        width: 100%;
+        min-height: auto;
+        grid-template-columns: 1fr;
+      }
+      .sidebar { padding-bottom: 32px; }
+      .sidebar::after {
+        right: auto;
+        top: auto;
+        bottom: 0;
+        width: 100%;
+        height: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button class="primary" type="button" onclick="window.print()">Télécharger / Imprimer le CV</button>
+    <a class="ghost" href="/">Retour au profil</a>
+  </div>
+
+  <div class="page-wrap">
+    <article class="cv">
+      <aside class="sidebar">
+        <div class="mono">GK</div>
+        <div class="photo-wrap">
+          <img src="/img/profile.jpeg" alt="MANGABU KANY GRACE">
+        </div>
+        <p class="side-title">Contact</p>
+
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+          <span>gracekany20@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+          <span>0850317570</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/></svg>
+          <span>Congolaise</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+          <span>12/09/2003</span>
+        </div>
+
+        <div class="side-block">
+          <p class="side-title">Langues</p>
+          <div class="lang-row">
+            <div><strong>Français</strong><br><span>Courant</span></div>
+            <div class="bars"><i class="bar on"></i><i class="bar on"></i><i class="bar on"></i><i class="bar on"></i><i class="bar on"></i></div>
+          </div>
+          <div class="lang-row">
+            <div><strong>Swahili</strong><br><span>Courant</span></div>
+            <div class="bars"><i class="bar on"></i><i class="bar on"></i><i class="bar on"></i><i class="bar on"></i><i class="bar on"></i></div>
+          </div>
+          <div class="lang-row">
+            <div><strong>Lingala</strong><br><span>Intermédiaire</span></div>
+            <div class="bars"><i class="bar on"></i><i class="bar on"></i><i class="bar on"></i><i class="bar"></i><i class="bar"></i></div>
+          </div>
+          <div class="lang-row">
+            <div><strong>Anglais</strong><br><span>Intermédiaire</span></div>
+            <div class="bars"><i class="bar on"></i><i class="bar on"></i><i class="bar on"></i><i class="bar"></i><i class="bar"></i></div>
+          </div>
+        </div>
+
+        <div class="side-block">
+          <p class="side-title">Qualités</p>
+          <span class="pill">Organisée</span>
+          <span class="pill">Dynamique</span>
+          <span class="pill">Sérieuse</span>
+          <span class="pill">Responsable</span>
+          <span class="pill">À l’écoute</span>
+          <span class="pill">Ponctuelle</span>
+          <span class="pill">Esprit d’équipe</span>
+          <span class="pill">Communication</span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <p class="kicker">Profil professionnel</p>
+        <h1 class="name">Grace <em>Mangabu Kany</em></h1>
+        <p class="headline">Master en Ressources Humaines · Économie et Management</p>
+        <div class="top-rule"></div>
+
+        <section class="section">
+          <h2>Profil</h2>
+          <p class="profile-text">Titulaire d’un Master en Économie et Gestion, spécialisation Ressources Humaines, je suis une personne dynamique, rigoureuse, organisée et dotée d’une grande capacité d’adaptation. Passionnée par la gestion des talents et le développement des équipes, je suis constamment motivée à apprendre et à relever de nouveaux défis. Ma passion pour la pâtisserie nourrit également ma créativité, ma précision et mon sens du détail.</p>
+        </section>
+
+        <section class="section">
+          <h2>Formation</h2>
+          <div class="timeline">
+            <div class="item">
+              <h3>Université Protestante au Congo</h3>
+              <p class="meta">Master en Économie et Gestion — Spécialisation Ressources Humaines</p>
+              <p>Formation axée sur l’économie, le management et la gestion des ressources humaines, avec une attention particulière portée au développement des talents et des équipes.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Expérience</h2>
+          <div class="timeline">
+            <div class="item">
+              <h3>Office de Gestion du Fret Multimodal (DRSK)</h3>
+              <p class="meta">Stagiaire académique · Octobre 2025 – Novembre 2025</p>
+              <p>Contribution aux tâches liées à la gestion administrative.</p>
+            </div>
+            <div class="item">
+              <h3>Office de Gestion du Fret Multimodal (DRSK)</h3>
+              <p class="meta">Stagiaire académique · Décembre 2023 – Janvier 2024</p>
+              <p>Contribution aux tâches de gestion financière.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Compétences</h2>
+          <div class="skills">
+            <div class="skill"><div class="skill-name">Ressources humaines</div><div class="track"><div class="fill" style="width:95%"></div></div></div>
+            <div class="skill"><div class="skill-name">Gestion administrative</div><div class="track"><div class="fill" style="width:88%"></div></div></div>
+            <div class="skill"><div class="skill-name">Communication professionnelle</div><div class="track"><div class="fill" style="width:86%"></div></div></div>
+            <div class="skill"><div class="skill-name">Microsoft Word et Excel</div><div class="track"><div class="fill" style="width:84%"></div></div></div>
+            <div class="skill"><div class="skill-name">Logiciel comptable Xsage</div><div class="track"><div class="fill" style="width:70%"></div></div></div>
+            <div class="skill"><div class="skill-name">Travail en équipe</div><div class="track"><div class="fill" style="width:90%"></div></div></div>
+          </div>
+        </section>
+
+        <p class="footer-note">Passionnée par les ressources humaines, la gestion des talents et le développement des équipes.</p>
+      </main>
+    </article>
+  </div>
+
+  <script>
+    if (new URLSearchParams(location.search).get('print') === '1') {
+      window.addEventListener('load', function () {
+        setTimeout(function () { window.print(); }, 400);
+      });
+    }
+  </script>
+</body>
+</html>
